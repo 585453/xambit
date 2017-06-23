@@ -1,0 +1,47 @@
+.\"
+.\"
+.\" Copyright (C) 2016-2017 BAE Systems
+.\"
+.\"
+.TH channel_send 3
+.SH NAME
+channel_send, channel_send_file \- Send a data buffer or file across a xambit channel
+.SH SYNOPSIS
+.nf
+.B #include <xambit.h>
+.sp
+.BI "int channel_send(xambit_channel_t * " ch ", void * " buf ", size_t " size ", unsigned int " tid " );
+.sp
+.BI "int channel_send_file(xambit_channel_t * " ch ", const char * " path ", unsigned int " tid " );
+.sp
+
+.fi
+.SH DESCRIPTION
+The \fBchannel_send()\fR functions are used to send data across the xambit
+channel \fIch\fR. For \fBchannel_send\fR, the data to be sent is located in a
+buffer pointed by by \fIbuf\fR. The caller must also pass the size of the buffer
+in \fIsize\fR. \fBchannel_send_file\fR will send the file given by \fIpath\fR.
+Both functions will send the entire data block at before returning. 
+.PP
+The type ID of the data must be given by the \fItid\fR field. This is a user
+defined value that will determine which validation routine will be run on the
+data prior to being sent. Both the sender and receiver should agree on what
+these values are.
+.SH RETURN VALUE
+On success these functions will return 0; On failure, a negetive value is
+returned. See the next section for a list of possible failure conditions.
+.SH ERRORS
+.TP
+.BR XAMBIT_ERR_STD (-1)
+A standard system call or library routine such as \fBopen\fR or \fBwrite\fR
+returned an error. Use \fIerrno\fR to get the specific failure. 
+.TP
+.BR XAMBIT_ERR_VALIDATE (-3)
+The validation routine determined the data is not safe to send.
+.TP
+.BR XAMBIT_ERR_BAD_TYPE (-4)
+The \fItid\fR has not been registered as a valid type for this channel.
+.SH "SEE ALSO"
+.BR channel_register_type (3)
+.SH COPYRIGHT
+Copyright \(co 2016-2017 BAE Systems. All rights reserved.

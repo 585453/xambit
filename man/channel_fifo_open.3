@@ -1,0 +1,43 @@
+.\"
+.\"
+.\" Copyright (C) 2016-2017 BAE Systems
+.\"
+.\"
+.TH channel_fifo_open 3
+.SH NAME
+channel_fifo_open, channel_close \- Open and close a xambit FIFO channel
+.SH SYNOPSIS
+.nf
+.B #include <xambit.h>
+.sp
+.BI "xambit_channel_t * channel_fifo_open(const char * " path " , int " flags " , int " write " );
+.sp
+.BI "int channel_close(xambit_channel_t * " ch " );
+.sp
+
+.fi
+.SH DESCRIPTION
+\fBchannel_fifo_open\fR is used to open the FIFO object specified in \fIpath\fR. The
+\fIflags\fR field is reserved and 0 should be passed when calling this function.
+The \fIwrite\fR field specifies whether the FIFO is being opened for read or write.
+For read, pass the value \fBXAMBIT_CHIN\fR, for write, use \fBXAMBIT_CHOUT\fR.
+.PP
+\fBchannel_close\fR will close the channel specified by \fIch\fR.
+.SH RETURN VALUE
+On sucess \fBchannel_fifo_open\fR will return a pointer to a xambit_channel_t
+structure. On failure, NULL is returned and \fIerrno\fR is set appropriately.
+.PP
+\fBchannel_close\fR will return the result of 
+.BR close (2)
+.SH ERRORS
+.TP
+.B ENOMEM
+Not enough memory.
+.TP
+.B ENAMETOOLONG
+The specified \fIpath\fR is longer than PATH_MAX.
+.TP
+.B EINVAL
+The objecet specified by \fIpath\fR is not a FIFO or character block device
+.SH COPYRIGHT
+Copyright \(co 2016-2017 BAE Systems. All rights reserved.

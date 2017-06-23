@@ -1,0 +1,5 @@
+DOMAIN=sender
+DOMAIN=filter
+DOMAIN=receiver
+sender->filter;sndflt0
+filter->receiver;fltrec0

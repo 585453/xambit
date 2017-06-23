@@ -1,0 +1,22 @@
+Copyright (C) 2016-2017 BAE Systems.
+
+Xambit is a library that standardizes the sending and receiving of data across
+a FIFO object. It also mandates a user defined validation hook that determines
+whether or not the data is allowed to be divluged or ingested. 
+
+Building and installation
+=========================
+On STOP: 
+-------
+autoreconf -i
+./configure --prefix=/xts --libdir=/xts/lib64
+make
+make install
+
+
+On Linux: 
+--------
+autoreconf -i
+./configure
+make
+make install

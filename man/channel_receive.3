@@ -1,0 +1,71 @@
+.\"
+.\"
+.\" Copyright (C) 2016-2017 BAE Systems
+.\"
+.\"
+.TH channel_receive 3
+.SH NAME
+channel_receive, channel_receive_to_file, xambit_parcel_hdr_t \- Receive a block of data from a xambit channel
+.SH SYNOPSIS
+.nf
+.B #include <xambit.h>
+.sp
+.BI "int channel_receive(xambit_channel_t * " ch ", void ** " buf ", xambit_parcel_hdr_t ** " header " );
+.sp
+.BI "int channel_receive_to_file(xambit_channel_t * " ch ", const char * " path ", int " oflags ", mode_t " omode " );
+.sp
+
+.fi
+.SH DESCRIPTION
+The functions \fBchannel_receive\fR and \fBchannel_receive_to_file\fR are used
+to receive data from the xambit_channel_t * \fIch\fR. \fBchannel_receive\fR will
+allocate memory for the received data and return it to the caller in \fIbuf\fR.
+It is up to the caller to \fBfree\fR(2) the data. The length, and type ID of the data in
+\fIbuf\fR will be returned in \fIheader\fR. \fBchannel_receive\fR will allocate
+the memory for the header; the caller must \fBfree\fR(2).  The 
+xambit_parcel_hdr_t structure contains the following fields:
+.PP
+.in +4n
+.nf
+struct xambit_parcel_hdr_t {
+    uint32_t	version;  	/* Version ID of this structure - must be 1 */
+    uint32_t	type;		/* User defined type ID */
+    uint32_t	flags;		/* Flags - Reserved */
+    uint64_t	length;		/* Size in bytes of data buffer*/
+    uint32_t	hdr_checksum;	/* Checksum of this header */
+};
+.fi
+.in
+.PP
+The \fBchannel_receive_to_file\fR function will save the received data to the
+file specified by \fIpath\fR. The file given by \fIpath\fR will be opened by
+\fBopen\fR(2) using the flags and mode given by \fIoflags\fR and \fIomode\fR. 
+.PP
+Before any data is returned to the caller or written to a file, the data is
+passed to the validator routine that has been registered for the \fItype\fR ID
+given in \fIheader\fR. If the validator routine does not pass the data, no
+memory will be allocated. 
+.SH RETURN VALUE
+On success, 0 is returned. On failure, a negetive number is returned. See the
+ERRORS section of this man page for specific error conditions. 
+.SH ERRORS
+.TP
+.BR XAMBIT_ERR_STD  (-1)
+A standard system call or library routine such as \fBopen\fR or \fBwrite\fR
+returned an error. Use \fIerrno\fR to get the specific failure. 
+.TP
+.BR XAMBIT_ERR_CHKSUM  (-2)
+Header checksum error
+.TP
+.BR XAMBIT_ERR_VALIDATE  (-3)
+The validation routine determined the data is not safe to receive.
+.TP
+.BR XAMBIT_ERR_BAD_TYPE  (-4)
+The \fItid\fR has not been registered as a valid type for this channel.
+.TP
+.BR XAMBIT_ERR_HDR_VER  (-5)
+The received header contained an incompatible version number.
+.SH "SEE ALSO"
+.BR channel_register_type (3)
+.SH COPYRIGHT
+Copyright \(co 2016-2017 BAE Systems. All rights reserved.

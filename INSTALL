@@ -1,0 +1,16 @@
+Building and installation
+=========================
+On STOP: 
+-------
+autoreconf -i
+./configure --prefix=/xts --libdir=/xts/lib64
+make
+make install
+
+
+On Linux: 
+--------
+autoreconf -i
+./configure
+make
+make install

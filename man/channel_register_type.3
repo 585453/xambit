@@ -1,0 +1,44 @@
+.\"
+.\"
+.\" Copyright (C) 2016-2017 BAE Systems
+.\"
+.\"
+.TH channel_register_type 3
+.SH NAME
+channel_register_type \- Assign a validator function for a given type ID
+.SH SYNOPSIS
+.nf
+.B #include <xambit.h>
+.sp
+.BI "int channel_register_type(xambit_channel_t * " ch ", uint32_t " type_id ", int (*"validate ")(xambit_parcel_hdr_t *, void *));
+.sp
+
+.fi
+.SH DESCRIPTION
+\fBchannel_register_type\fR will create a mapping of \fItype_id\fRs to user
+defined \fIvalidate\fR functions for the given channel \fIch\fR. It is the job
+of the \fIvalidate\fR function to determine whether or not data sent or received
+by \fBchannel_send\fR or \fBchannel_receive\fR with a type ID of \fItype_id\fR
+is safe to pass. These functions must return 0 if the data is safe to pass, and
+return -1 if the data is not safe to pass. 
+.PP
+The two functions \fBnull_validator\fR and \fBdefault_validator\fR have been
+provided that will always pass and fail respectivly. 
+.SH RETURN VALUE
+On success 0 will be returned. On failure, -1 is returned and \fIerrno\fR will
+be set appropriately.
+.PP
+\fBchannel_close\fR will return the result of 
+.BR close (2)
+.SH ERRORS
+.TP
+.B ENOMEM
+Not enough memory.
+.TP
+.B EEXIST
+The given \fItype_id\fR has already been registered.
+.TP
+.B EINVAL
+Bad \fIch\fR or \fIvalidate\fR pointers.
+.SH COPYRIGHT
+Copyright \(co 2016-2017 BAE Systems. All rights reserved.

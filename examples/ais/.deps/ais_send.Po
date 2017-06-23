@@ -1,0 +1,142 @@
+examples/ais/ais_send.o: examples/ais/ais_send.c /xts/include/errno.h \
+ /xts/include/features.h /xts/include/bits/uClibc_config.h \
+ /xts/include/sys/cdefs.h /xts/include/bits/errno.h \
+ /xts/include/xts/errno.h /xts/include/signal.h \
+ /xts/include/bits/sigset.h /xts/include/bits/types.h \
+ /xts/include/bits/wordsize.h /xts/include/bits/typesizes.h \
+ /xts/include/bits/signum.h /xts/include/time.h \
+ /xts/include/bits/siginfo.h /xts/include/bits/sigaction.h \
+ /xts/include/bits/sigcontext.h \
+ /xts/lib/gcc/x86_64-linux-uclibc/4.8.5/include/stddef.h \
+ /xts/include/bits/sigstack.h /xts/include/bits/pthreadtypes.h \
+ /xts/include/bits/sigthread.h \
+ /xts/lib/gcc/x86_64-linux-uclibc/4.8.5/include/stdint.h \
+ /xts/include/stdint.h /xts/include/bits/wchar.h /xts/include/stdio.h \
+ /xts/include/bits/uClibc_stdio.h /xts/include/wchar.h \
+ /xts/lib/gcc/x86_64-linux-uclibc/4.8.5/include/stdarg.h \
+ /xts/include/bits/stdio_lim.h /xts/include/stdlib.h \
+ /xts/include/bits/waitflags.h /xts/include/bits/waitstatus.h \
+ /xts/include/endian.h /xts/include/bits/endian.h /xts/include/byteswap.h \
+ /xts/include/bits/byteswap.h /xts/include/bits/byteswap-common.h \
+ /xts/include/bits/byteswap-16.h /xts/include/sys/types.h \
+ /xts/include/sys/select.h /xts/include/bits/select.h \
+ /xts/include/bits/time.h /xts/include/sys/sysmacros.h \
+ /xts/include/alloca.h /xts/include/string.h /xts/include/sys/stat.h \
+ /xts/include/bits/stat.h /xts/include/unistd.h \
+ /xts/include/bits/posix_opt.h /xts/include/bits/uClibc_posix_opt.h \
+ /xts/include/bits/environments.h /xts/include/bits/confname.h \
+ /xts/include/bits/getopt.h src/include/xambit.h \
+ /xts/include/xts/limits.h /xts/include/inttypes.h \
+ examples/ais/../include/ex_types.h
+
+/xts/include/errno.h:
+
+/xts/include/features.h:
+
+/xts/include/bits/uClibc_config.h:
+
+/xts/include/sys/cdefs.h:
+
+/xts/include/bits/errno.h:
+
+/xts/include/xts/errno.h:
+
+/xts/include/signal.h:
+
+/xts/include/bits/sigset.h:
+
+/xts/include/bits/types.h:
+
+/xts/include/bits/wordsize.h:
+
+/xts/include/bits/typesizes.h:
+
+/xts/include/bits/signum.h:
+
+/xts/include/time.h:
+
+/xts/include/bits/siginfo.h:
+
+/xts/include/bits/sigaction.h:
+
+/xts/include/bits/sigcontext.h:
+
+/xts/lib/gcc/x86_64-linux-uclibc/4.8.5/include/stddef.h:
+
+/xts/include/bits/sigstack.h:
+
+/xts/include/bits/pthreadtypes.h:
+
+/xts/include/bits/sigthread.h:
+
+/xts/lib/gcc/x86_64-linux-uclibc/4.8.5/include/stdint.h:
+
+/xts/include/stdint.h:
+
+/xts/include/bits/wchar.h:
+
+/xts/include/stdio.h:
+
+/xts/include/bits/uClibc_stdio.h:
+
+/xts/include/wchar.h:
+
+/xts/lib/gcc/x86_64-linux-uclibc/4.8.5/include/stdarg.h:
+
+/xts/include/bits/stdio_lim.h:
+
+/xts/include/stdlib.h:
+
+/xts/include/bits/waitflags.h:
+
+/xts/include/bits/waitstatus.h:
+
+/xts/include/endian.h:
+
+/xts/include/bits/endian.h:
+
+/xts/include/byteswap.h:
+
+/xts/include/bits/byteswap.h:
+
+/xts/include/bits/byteswap-common.h:
+
+/xts/include/bits/byteswap-16.h:
+
+/xts/include/sys/types.h:
+
+/xts/include/sys/select.h:
+
+/xts/include/bits/select.h:
+
+/xts/include/bits/time.h:
+
+/xts/include/sys/sysmacros.h:
+
+/xts/include/alloca.h:
+
+/xts/include/string.h:
+
+/xts/include/sys/stat.h:
+
+/xts/include/bits/stat.h:
+
+/xts/include/unistd.h:
+
+/xts/include/bits/posix_opt.h:
+
+/xts/include/bits/uClibc_posix_opt.h:
+
+/xts/include/bits/environments.h:
+
+/xts/include/bits/confname.h:
+
+/xts/include/bits/getopt.h:
+
+src/include/xambit.h:
+
+/xts/include/xts/limits.h:
+
+/xts/include/inttypes.h:
+
+examples/ais/../include/ex_types.h:
